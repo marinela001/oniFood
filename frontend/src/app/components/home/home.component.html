@@ -1,0 +1,46 @@
+
+<app-search></app-search>
+<app-tag></app-tag>
+<ul>
+  <li *ngFor="let food of foods">
+    <a>
+<mat-card class="card">
+  <mat-card-header>
+
+    <mat-card-title>  {{food.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="food.imageUrl" [alt]="food.name">
+  <mat-card-content>
+    <span class="favorite {{food.favorite?'':'not'}}">
+      ❤
+    </span>
+    <div class="product-item-footer">
+      <div class="origins">
+        <span *ngFor="let origin of food.origins">
+          {{origin}}
+        </span>
+      </div>
+
+      <div class="cook-time">
+        <span>🕒</span>
+        {{food.cookTime}}
+      </div>
+    </div>
+    <div class="stars">
+      <star-rating [value]="food.stars" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="22px"
+      [readonly]="true">
+    </star-rating>
+    </div>
+    <div class="price">
+      <span>
+        {{food.price | currency}}
+      </span>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+
+  </mat-card-actions>
+</mat-card>
+</a>
+  </li>
+</ul>
