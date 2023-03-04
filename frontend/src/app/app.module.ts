@@ -12,13 +12,17 @@ import {MatCardModule} from '@angular/material/card';
 import { RatingModule } from 'ng-starrating';
 import { SearchComponent } from './components/partials/search/search.component';
 import { TagComponent } from './components/partials/tag/tag.component';
+import { FoodDetailComponent } from './components/pages/food-detail/food-detail.component';
+import { CartComponent } from './components/pages/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
     SearchComponent,
-    TagComponent
+    TagComponent,
+    FoodDetailComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
