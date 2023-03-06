@@ -16,6 +16,8 @@ import { FoodDetailComponent } from './components/pages/food-detail/food-detail.
 import { CartComponent } from './components/pages/cart/cart.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { BannerComponent } from './components/partials/banner/banner.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/pages/login/login.component';
 @NgModule({
   declarations: [
 
@@ -28,6 +30,7 @@ import { BannerComponent } from './components/partials/banner/banner.component';
     CartComponent,
     NotFoundComponent,
     BannerComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -39,6 +42,7 @@ import { BannerComponent } from './components/partials/banner/banner.component';
     MatBadgeModule,
     MatCardModule,
     RatingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

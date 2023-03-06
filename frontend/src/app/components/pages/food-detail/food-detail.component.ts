@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { FoodService } from 'src/app/services/food-service.service';
 import { Food } from 'src/app/shared/models/Food';
@@ -12,13 +13,17 @@ import { Food } from 'src/app/shared/models/Food';
 export class FoodDetailComponent implements OnInit {
  food!:Food
   constructor(activatedRoute:ActivatedRoute, private foodService:FoodService,private cartService:CartService,private router:Router) {
+    let foodObservable:Observable<Food>
 
     activatedRoute.params.subscribe((params)=>{
 if(params.id){
-  this.food = this.foodService.getFoodById(params.id);
+  foodObservable = this.foodService.getFoodById(params.id);
 }
-
+  foodObservable.subscribe((food)=>{
+      this.food=food;
     })
+    })
+
    }
 
   ngOnInit(): void {
