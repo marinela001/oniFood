@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { FoodService } from 'src/app/services/food-service.service';
 import { Food } from 'src/app/shared/models/Food';
 
@@ -10,7 +10,7 @@ import { Food } from 'src/app/shared/models/Food';
 })
 export class HomeComponent implements OnInit {
   foods:Food[]=[];
-  constructor(private foodService: FoodService,private activatedRoute:ActivatedRoute) {
+  constructor(private foodService: FoodService,private activatedRoute:ActivatedRoute,private router:Router) {
 
     activatedRoute.params.subscribe((params)=>{
       if(params.searchTerm){
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       else if (params.tags){
         this.foods=this.foodService.getFoodsByTag(params.tags)
       }
-      else  this.foods = this.foodService.getAll();
+      // else  this.foods = this.foodService.getAll();
     })
   }
 
@@ -28,7 +28,10 @@ export class HomeComponent implements OnInit {
 
     // this.foods = this.foodService.getAll();
   }
-
+ goToDetail(id:string){
+  console.log('object')
+this.router.navigateByUrl(`/food/${id}`)
+ }
 
 
 

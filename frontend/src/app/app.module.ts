@@ -14,15 +14,21 @@ import { SearchComponent } from './components/partials/search/search.component';
 import { TagComponent } from './components/partials/tag/tag.component';
 import { FoodDetailComponent } from './components/pages/food-detail/food-detail.component';
 import { CartComponent } from './components/pages/cart/cart.component';
+import { NotFoundComponent } from './components/partials/not-found/not-found.component';
+import { BannerComponent } from './components/partials/banner/banner.component';
 @NgModule({
   declarations: [
+
     AppComponent,
     HeaderComponent,
     HomeComponent,
     SearchComponent,
     TagComponent,
     FoodDetailComponent,
-    CartComponent
+    CartComponent,
+    NotFoundComponent,
+    BannerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,7 @@ import { CartComponent } from './components/pages/cart/cart.component';
     MatToolbarModule,
     MatBadgeModule,
     MatCardModule,
-    RatingModule
+    RatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

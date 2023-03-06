@@ -1,10 +1,17 @@
 
+<app-banner></app-banner>
 <app-search></app-search>
+<app-not-found
+[visible]="!foods || !foods.length"
+resetLinkText="Reset Search">
+</app-not-found>
 <app-tag></app-tag>
+
+
 <ul>
   <li *ngFor="let food of foods">
-    <a>
-<mat-card class="card">
+    <a (click)="goToDetail(food.id)">
+<mat-card class="card" >
   <mat-card-header>
 
     <mat-card-title>  {{food.name}}</mat-card-title>

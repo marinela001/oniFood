@@ -1,14 +1,16 @@
-<div *ngIf="food" class="container">
-  <img [src]="food.imageUrl" [alt]="food.name"/>
+<div *ngIf="food" class="container bg-gray-200 min-w-screen min-h-screen   ml-0 p-0 z-10 md:rounded-tr-full mt-10 sm:text-center sm:text-xs">
 
-  <div class="details">
+
+  <img  [src]="food.imageUrl" [alt]="food.name" class="md:rounded-tl-full md:w-1/2 md:h-3/4 sm:w-screen "/>
+
+  <div class="details sm:text-sm">
     <div class="header">
       <span class="name">
         {{food.name}}
       </span>
       <span class="favorite {{food.favorite? '': 'not'}}">❤</span>
     </div>
-    <div class="rating">
+    <div class="rating m-1.5">
       <star-rating
       [value]="food.stars"
       [totalstars]="5"
@@ -19,13 +21,13 @@
     </star-rating>
     </div>
 
-    <div class="origins">
+    <div class="origins text-black">
       <span *ngFor="let origin of food.origins">
         {{origin}}
       </span>
     </div>
 
-    <div class="tags">
+    <div class="tags text-yellow-500">
       <a *ngFor="let tag of food.tags" routerLink="/tag/{{tag}}">
         {{tag}}
       </a>
@@ -38,7 +40,7 @@
     </div>
 
     <div class="price">
-      <span>
+      <span class="text-red-600">
         {{food.price | currency}}
       </span>
     </div>
