@@ -11,12 +11,17 @@ app.use((cors)({
 app.get("/api/foods",(req,res)=>{
     res.send(sample_foods)
 })
+app.get("/api/foods/tags",(req,res)=>{
+    res.send(sample_tags);
+})
 app.get("/api/foods/:foodId",(req,res)=>{
 
     const id = req.params.foodId;
-    const food = sample_foods.find((food)=>food.id = id)
+    const food = sample_foods.find((food)=>food.id === id)
     res.send(food)
 })
+
+
 app.get("/api/foods/search/:searchTerm",(req,res)=>{
 
     const searchTerm = req.params.searchTerm;
@@ -24,13 +29,9 @@ app.get("/api/foods/search/:searchTerm",(req,res)=>{
     res.send(foods)
 })
 
-app.get("/api/foods/tags",(req,res)=>{
 
-    res.send(sample_tags)
-})
 
 app.get("/api/foods/tag/:tagName",(req,res)=>{
-
 const tagName = req.params.tagName;
 const foods = sample_foods.filter((food)=>food.tags.includes(tagName));
 
