@@ -20,7 +20,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 @layer components{
-
+  .input {
+    @apply w-full rounded  px-5 py-3.5  outline-none ;
+  }
  .headerLink{
      @apply cursor-pointer text-sm font-light text-black
  }}

@@ -18,6 +18,8 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
 import { BannerComponent } from './components/partials/banner/banner.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
 
@@ -42,7 +44,13 @@ import { LoginComponent } from './components/pages/login/login.component';
     MatBadgeModule,
     MatCardModule,
     RatingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut:3000,
+      positionClass:'toast-top-right',
+      newestOnTop:false
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

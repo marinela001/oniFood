@@ -1,1 +1,27 @@
-<p>login works!</p>
+
+<app-banner></app-banner>
+
+<div class='relative flex  flex-col justify-center h-screen w-screen md:items-center md:bg-transparent '>
+  <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" class='relative  space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14 justify-center' >
+    <h1 class='text-4xl font-semibold -mt-72 text-white'>Sign In</h1>
+    <div class='space-y-4'>
+      <label class="inline-block w-full">
+        <input type="email" class="input" placeholder='email' formControlName='email'/>
+        <div class="text-red-600" *ngIf="fc.email.errors?.required && isSubmited"> Email Required*</div>
+        <div class="text-red-600" *ngIf="fc.email.errors?.email && isSubmited">Email not valid*</div>
+
+        </label>
+
+
+
+        <label class="inline-block w-full">
+          <input type="password" class="input" placeholder='password' formControlName='password'/>
+          <div class="text-red-600" *ngIf="fc.password.errors?.required && isSubmited"> Password Required*</div>
+        </label>
+
+
+    </div>
+    <button type="submit" class="w-full rounded bg-red-600 text-white hover:opacity-80  py-3 font-semibold" >Sign In</button>
+
+  </form>
+</div>
