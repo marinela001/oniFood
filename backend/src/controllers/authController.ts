@@ -7,8 +7,8 @@ const jwt = require('jsonwebtoken');
 const handleLogin = async (req: any, res: any) => {
   console.log( 'token: '+     process.env.ACCESS_TOKEN_SECRET )
   const user:User  = req.body;
-  if (!user.username || !user.password) return res.status(400).json({ message: 'Username and password are required.' });
-  const foundUser = await UserModel.findOne({ username: user.username }).exec();
+  if (!user.email || !user.password) return res.status(400).json({ message: 'Username and password are required.' });
+  const foundUser = await UserModel.findOne({ email: user.email }).exec();
   if (!foundUser) return res.status(401).json({ message: 'User not found' }); //Unauthorized
   // evaluate password
   const match = await bcrypt.compare(user.password, foundUser.password);

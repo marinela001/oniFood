@@ -1,0 +1,55 @@
+
+<app-banner></app-banner>
+
+<div class='relative flex  flex-col justify-center h-screen w-screen md:items-center md:bg-transparent '>
+   <h1 class='text-4xl font-semibold -mt-72 text-white'>Sign Up</h1>
+   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class='relative  space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14 justify-center text-right' >
+
+    <div class='space-y-4'>
+
+      <label class="w-full justify-center">
+
+
+        <input type="text" class="input" placeholder='username' formControlName='username'/>
+        <div class="text-red-600" *ngIf="fc.username.errors?.required && isSubmited"> Username Required*</div>
+
+        </label>
+
+      <label class="inline-block w-full">
+
+
+        <input type="email" class="input" placeholder='email' formControlName='email'/>
+        <div class="text-red-600" *ngIf="fc.email.errors?.required && isSubmited"> Email Required*</div>
+        <div class="text-red-600" *ngIf="fc.email.errors?.email && isSubmited">Email not valid*</div>
+
+        </label>
+
+
+
+        <label class="inline-block w-full">
+          <input type="password" class="input" placeholder='password' formControlName='password'/>
+          <div class="text-red-600" *ngIf="fc.password.errors?.required && isSubmited"> Password Required*</div>
+        </label>
+        <label class="inline-block w-full">
+          <input type="password" class="input" placeholder='confirm password' formControlName='confirm_password'/>
+         <div class="text-red-600" *ngIf="fc.confirm_password.errors?.required && isSubmited">Please confirm your Password*</div>
+         <div class="text-red-600" *ngIf="fc.confirm_password.errors?.confirmedValidator && isSubmited">Password do not match*</div>
+
+        </label>
+        <label class="inline-block w-full">
+          <input type="text" class="input" placeholder='address' formControlName='address'/>
+        </label>
+
+
+    </div>
+    <button type="submit" class="w-full rounded bg-red-600 text-white hover:opacity-80  py-3 font-semibold" >Register</button>
+ <div class="text-center">
+    Already a user? &nbsp;
+    <a routerLink="/login" [queryParams]="{returnUrl: returnUrl}">
+      Login Here
+    </a>
+  </div>
+  </form>
+
+</div>
+
