@@ -16,11 +16,15 @@ import { FoodDetailComponent } from './components/pages/food-detail/food-detail.
 import { CartComponent } from './components/pages/cart/cart.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { BannerComponent } from './components/partials/banner/banner.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './components/pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterComponent } from './components/pages/register/register.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingComponent } from './partials/loading/loading.component';
+import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
+
 @NgModule({
   declarations: [
 
@@ -35,6 +39,7 @@ import { RegisterComponent } from './components/pages/register/register.componen
     BannerComponent,
     LoginComponent,
     RegisterComponent,
+    LoadingComponent,
 
   ],
   imports: [
@@ -48,13 +53,17 @@ import { RegisterComponent } from './components/pages/register/register.componen
     RatingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     ToastrModule.forRoot({
       timeOut:3000,
       positionClass:'toast-top-right',
       newestOnTop:false
     })
   ],
-  providers: [],
+  providers: [
+
+    {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

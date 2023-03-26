@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FoodService } from 'src/app/services/food-service.service';
@@ -15,16 +17,21 @@ export class HomeComponent implements OnInit {
     let foodObservable:Observable<Food[]>
     activatedRoute.params.subscribe((params)=>{
       if(params.searchTerm){
-        foodObservable= foodService.getFoodsBySearchTerm(params.searchTerm)
-        console.log(this.foods)
+        foodObservable= foodService.getFoodsBySearchTerm(params.searchTerm);
       }
       else if (params.tags){
-        foodObservable=this.foodService.getFoodsByTag(params.tags)
+
+        foodObservable=this.foodService.getFoodsByTag(params.tags);
+
       }
-      else  foodObservable= this.foodService.getAll();
+      else  {
+
+        foodObservable= this.foodService.getAll();}
 
       foodObservable.subscribe((foods)=>{
         this.foods=foods;
+
+
       })
     })
   }
@@ -34,7 +41,6 @@ export class HomeComponent implements OnInit {
     // this.foods = this.foodService.getAll();
   }
  goToDetail(id:string){
-  console.log('object')
 this.router.navigateByUrl(`/food/${id}`)
  }
 

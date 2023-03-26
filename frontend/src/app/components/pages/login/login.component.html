@@ -1,9 +1,9 @@
 
 <app-banner></app-banner>
 
-<div class='relative flex  flex-col justify-center h-screen w-screen md:items-center md:bg-transparent '>
+<div class='relative flex  flex-col justify-center h-screen w-screen md:items-center md:bg-transparent -mt-16 '>
   <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" class='relative  space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14 justify-center' >
-    <h1 class='text-4xl font-semibold -mt-72 text-white'>Sign In</h1>
+    <h1 class='text-4xl font-semibold -mt-80 text-white'>Sign In</h1>
     <div class='space-y-4'>
       <label class="inline-block w-full">
         <input type="email" class="input" placeholder='email' formControlName='email'/>

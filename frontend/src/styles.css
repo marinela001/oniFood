@@ -5,11 +5,11 @@
 html, body { height: 100%; max-width: 100%;
   overflow-x: hidden;
   }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; scrollbar-width: thin;scrollbar-color: rebeccapurple red; }
 
 @layer base {
   body {
-     @apply text-black bg-yellow-500 ;
+     @apply text-black bg-gray-200 ;
   }
 
 

@@ -1,6 +1,9 @@
-<div *ngIf="cart && cart.items.length" class="container">
+<div class="-rotate-80">
+<app-banner text="Get your meal now !"></app-banner></div>
+
+<div *ngIf="cart && cart.items.length" class="container relative flex flex-grow  -mt-10 min-w-screen min-h-screen ml-0 p-0 sm:justify-items-start z-10 md:rounded-br-fullS  sm:text-center sm:text-xs ">
 <ul>
-  <li *ngFor="let cartItem of cart.items">
+  <li *ngFor="let cartItem of cart.items " class="md:text-lg sm:text-sm">
     <div>
       <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name">
     </div>
@@ -11,6 +14,7 @@
     </div>
     <div>
       <select #quantitySelect
+
       [value]="cartItem.quantity"
       (change)="changeQuantity(cartItem, quantitySelect.value)">
       <option>1</option>
@@ -25,18 +29,20 @@
     </div>
 
     <div>
-      <button class="remove-button" (click)="removeFromCart(cartItem)">
+      <button class="remove-button text-red-600" (click)="removeFromCart(cartItem)">
         Remove
       </button>
     </div>
   </li>
 </ul>
-<div class="checkout">
+
+
+<div class="checkout md:text-lg sm:text-xs space-y-3 "><app-loading></app-loading>
   <div>
-    <div class="foods-count">{{cart.totalCount}}</div>
-    <div class="total-price">{{cart.totalPrice|currency}}</div>
+    <div class="text-xl">Items: {{cart.totalCount}}</div>
+    <div class="text-xl">Price: {{cart.totalPrice|currency}}</div>
   </div>
 
-  <a routerLink="/checkout">Proceed to Checkout</a>
+  <a routerLink="/checkout" class="ml-7 sm:ml-5">Proceed to Checkout</a>
 </div>
 </div>

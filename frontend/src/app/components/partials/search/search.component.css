@@ -1,8 +1,9 @@
 div{
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+
 }
 
 input{
@@ -15,6 +16,8 @@ input{
   font-size: 1.1rem;
   font-weight: 500;
   outline: none;
+  /* border: solid hsl(46, 100%, 57%); */
+
 }
 
 div button{
