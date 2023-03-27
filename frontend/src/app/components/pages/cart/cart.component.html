@@ -1,7 +1,14 @@
-<div class="-rotate-80">
-<app-banner text="Get your meal now !"></app-banner></div>
+<div class="">
+<!-- <app-banner text="Get your meal now !"></app-banner></div> -->
 
-<div *ngIf="cart && cart.items.length" class="container relative flex flex-grow  -mt-10 min-w-screen min-h-screen ml-0 p-0 sm:justify-items-start z-10 md:rounded-br-fullS  sm:text-center sm:text-xs ">
+<section class=" mb-5 flex justify-center  w-full bg-red-600 rounded-b-full">
+  <!-- content here -->
+<h1 class=" mt-11 sm:text-2xl  mb-5 md:text-4xl text-yellow-300 text-center p-8"><mat-icon class="icon-size mr-16 " > fastfood</mat-icon>Get your meal now !</h1>
+
+</section>
+
+
+<div *ngIf="cart && cart.items.length" class="container relative flex flex-grow   min-w-screen min-h-screen ml-0 p-0 sm:justify-items-start z-10 md:rounded-br-fullS  sm:text-center sm:text-xs ">
 <ul>
   <li *ngFor="let cartItem of cart.items " class="md:text-lg sm:text-sm">
     <div>
@@ -37,7 +44,7 @@
 </ul>
 
 
-<div class="checkout md:text-lg sm:text-xs space-y-3 "><app-loading></app-loading>
+<div class="checkout md:text-lg sm:text-xs space-y-3  mt-16"><app-loading></app-loading>
   <div>
     <div class="text-xl">Items: {{cart.totalCount}}</div>
     <div class="text-xl">Price: {{cart.totalPrice|currency}}</div>

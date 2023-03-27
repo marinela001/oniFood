@@ -24,6 +24,8 @@ import { RegisterComponent } from './components/pages/register/register.componen
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LoadingComponent } from './partials/loading/loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
+import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
+import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
     LoginComponent,
     RegisterComponent,
     LoadingComponent,
+    CheckoutPageComponent,
+    OrderItemsListComponent
 
   ],
   imports: [

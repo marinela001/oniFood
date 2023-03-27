@@ -1,0 +1,31 @@
+<div class="container">
+  <div class='relative  justify-center  md:items-center md:bg-transparent mt-16  ml-9 w-1/2'>
+
+  <h1 class="flex justify-center md:text-xl sm:text-lg text-red-800">Order Details:</h1>
+    <form [formGroup]="checkoutForm">
+      <div class='space-y-4 flex flex-col'>
+        <label class="inline-block w-full m-3">
+          <input type="text" class="input" placeholder='name' formControlName='name'/>
+          <div class="text-red-600" *ngIf="fc.name.errors?.required "> Name Required*</div>
+
+          </label>
+          <label class="inline-block  w-full m-3">
+            <input type="text" class="input" placeholder='address' formControlName='address'/>
+            <div class="text-red-600" *ngIf="fc.address.errors?.required "> <Address></Address> Adress Required*</div>
+
+            </label>
+      </div>
+    </form>
+    <app-order-items-list [order]="order"></app-order-items-list>
+  </div>
+  <div class="map">
+
+  </div>
+  <div class="flex content-center m-12 w-full justify-center">
+    <div class="buttons">
+      <button (click)="createOrder()" class="text-white bg-red-600 p-3 w-52 rounded-lg">
+        Go To Payment
+      </button>
+    </div>
+  </div>
+</div>

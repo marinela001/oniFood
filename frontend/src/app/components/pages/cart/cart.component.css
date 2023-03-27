@@ -118,3 +118,17 @@ li .remove-button:hover{
   opacity: 1;
   cursor: pointer;
 }
+
+section{
+  background-color: #e72929;
+}
+/* .icon-size {
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+} */
+
+.icon-size {
+  transform: scale(3);
+
+}
