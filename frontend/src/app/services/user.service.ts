@@ -29,6 +29,7 @@ public get currentUser ():User{
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
         next: (user) =>{
+          console.log(user)
           this.userSubject.next(user);
           console.log('user'+ user)
           this.setUserToLocalStorage(user);
@@ -38,11 +39,14 @@ public get currentUser ():User{
           )
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error, 'Login Failed');
+          console.log(errorResponse.error.message)
+          this.toastrService.error(errorResponse.error.message, 'Login Failed');
         }
     })
     );
   }
+
+
 
   register(userRegiser:IUserRegister): Observable<User>{
     return this.http.post<User>(USER_REGISTER_URL, userRegiser).pipe(
@@ -76,5 +80,19 @@ public get currentUser ():User{
     const userJson = localStorage.getItem(USER_KEY);
     if(userJson) return JSON.parse(userJson) as User;
     return new User();
+  }
+
+
+
+
+  formatUser(data:User ) {
+
+    const user:User ={
+      email:data.email,
+      username:data.username,
+      address:data.address
+
+    }
+    return user;
   }
 }

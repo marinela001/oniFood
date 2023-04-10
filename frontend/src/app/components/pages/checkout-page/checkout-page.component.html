@@ -1,15 +1,15 @@
-<div class="container">
-  <div class='relative  justify-center  md:items-center md:bg-transparent mt-16  ml-9 w-1/2'>
+<div class="md:flex md:flex-wrap">
+  <div class='md:bg-transparent mt-16  md:ml-9 md:w-1/2'>
 
   <h1 class="flex justify-center md:text-xl sm:text-lg text-red-800">Order Details:</h1>
     <form [formGroup]="checkoutForm">
-      <div class='space-y-4 flex flex-col'>
-        <label class="inline-block w-full m-3">
+      <div class='space-y-4 flex flex-col '>
+        <label class="inline-block md:w-full m-3 sm:w-2/3">
           <input type="text" class="input" placeholder='name' formControlName='name'/>
           <div class="text-red-600" *ngIf="fc.name.errors?.required "> Name Required*</div>
 
           </label>
-          <label class="inline-block  w-full m-3">
+          <label class="inline-block  md:w-full m-3 sm:w-2/3">
             <input type="text" class="input" placeholder='address' formControlName='address'/>
             <div class="text-red-600" *ngIf="fc.address.errors?.required "> <Address></Address> Adress Required*</div>
 
@@ -18,8 +18,8 @@
     </form>
     <app-order-items-list [order]="order"></app-order-items-list>
   </div>
-  <div class="map">
-
+  <div class="mt-16 ml-20">
+<app-map></app-map>
   </div>
   <div class="flex content-center m-12 w-full justify-center">
     <div class="buttons">

@@ -1,8 +1,8 @@
 export class User{
-  id!:string;
+  id?:string;
   email!:string;
-  username!:string;
-  address!:string;
-  token!:string;
-  isAdmin!:boolean;
+  username?:string;
+  address?:string;
+  token?:string;
+  isAdmin?:boolean;
 }

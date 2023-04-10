@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { UserService } from 'src/app/services/user.service';
 import { IUserLogin } from 'src/app/shared/interfaces/IUserLogin';
+import { AppState } from 'src/app/store/app.state';
+import { loginStart } from 'src/app/store/auth/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +16,7 @@ export class LoginComponent implements OnInit {
 loginForm!:FormGroup;
 isSubmited=false;
 returnUrl = '';
-  constructor(private formBuilder:FormBuilder,private userService:UserService,private activatedRoute:ActivatedRoute,private router:Router) { }
+  constructor(private formBuilder:FormBuilder,private userService:UserService,private activatedRoute:ActivatedRoute,private router:Router,private store: Store<AppState>) { }
 
   ngOnInit(): void {
    this.loginForm= this.formBuilder.group({
@@ -34,12 +37,8 @@ return this.loginForm.controls
 
 if(this.loginForm.invalid) return;
 
-const User:IUserLogin = {email:this.fc.email.value,password:this.fc.password.value}
-this.userService.login(User).subscribe(()=>{
-this.router.navigateByUrl(this.returnUrl)
-
-}
-)
+const user:IUserLogin = {email:this.fc.email.value,password:this.fc.password.value}
+this.store.dispatch(loginStart({ user }));
 
 // alert(`email: ${this.fc.email.value} and pass:${this.fc.password.value}`)
   }

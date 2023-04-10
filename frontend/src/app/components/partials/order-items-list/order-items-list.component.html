@@ -1,16 +1,16 @@
-<table class="w-full border-2 border-solid border-white p-4  m-3">
-  <tr>
+<table class="w-full border-2 border-solid border-white md:m-3 sm:mt-4">
+  <tr >
     <td colspan="5">
       <h3 class="text-red-900 ml-2">Order Items:</h3>
     </td>
   </tr>
-  <tr *ngFor="let item of order.items">
-    <td>
+  <tr *ngFor="let item of order.items" class="sm:text-xs  md:text-lg ">
+    <td colspan="2">
       <a routerLink="/food/{{item.food.id}}" class="opacity-90">
-        <img [src]="item.food.imageUrl" class="w-12  h-12  object-cover ml-2"/>
+        <img [src]="item.food.imageUrl" class="w-12 h-12 object-cover ml-2"/>
       </a>
     </td>
-    <td>
+    <td >
       {{item.food.name}}
     </td>
     <td>
@@ -23,9 +23,9 @@
       {{item.price | currency}}
     </td>
   </tr>
-  <tr>
+  <tr >
     <td colspan="3"></td>
-    <td>
+    <td >
       <strong>
         Total :
       </strong>

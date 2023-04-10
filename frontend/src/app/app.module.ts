@@ -26,6 +26,14 @@ import { LoadingComponent } from './partials/loading/loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
 import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
+import { MapComponent } from './components/partials/map/map.component';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { UserEffects } from './store/auth/auth.effects';
+import { userReducer } from './store/auth/auth.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +51,8 @@ import { OrderItemsListComponent } from './components/partials/order-items-list/
     RegisterComponent,
     LoadingComponent,
     CheckoutPageComponent,
-    OrderItemsListComponent
+    OrderItemsListComponent,
+    MapComponent
 
   ],
   imports: [
@@ -62,7 +71,12 @@ import { OrderItemsListComponent } from './components/partials/order-items-list/
       timeOut:3000,
       positionClass:'toast-top-right',
       newestOnTop:false
-    })
+    }),
+    StoreModule.forRoot({ auth: userReducer }),
+
+    EffectsModule.forRoot([UserEffects]),
+
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [
 
